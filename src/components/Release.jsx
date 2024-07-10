@@ -1,42 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/release.css';
+import releases from '../../public/json/release.json'; // Importar el archivo JSON
 
 const Release = () => {
-    const [projects, setProjects] = useState([]);
-
     useEffect(() => {
-        fetch('../../public/json/release.json')
-            .then(response => response.json())
-            .then(data => setProjects(data))
-            .catch(error => console.error('Error al cargar el archivo JSON:', error));
-    }, []);
+        const releaseElements = document.querySelectorAll('.release');
 
-    if (projects.length === 0) {
-        return <div>Cargando...</div>;
-    }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Cambiar según sea necesario para ajustar cuándo se activa la transición
+        });
+
+        releaseElements.forEach((element) => {
+            observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section className="releases">
-            {projects.map((project, index) => (
-                <article key={index} className='release'>
+            {releases.map((release, index) => (
+                <article key={index} className={`release ${index % 2 === 0 ? 'even' : 'odd'}`}>
                     <article className='bar'>
                         <article className='ball'></article>
                     </article>
                     <section className='detail'>
-                        <h1>{project.title}</h1>
+                        <h1>{release.title}</h1>
                         <article className='info'>
-                            <a href="#" className={`state ${project.state.toLowerCase()}`}>{project.state}</a>
-                            <p className='date'>{project.date}</p>
-                            <p className='description'>{project.description}</p>
+                            <a href="#" className={`state ${release.state.toLowerCase()}`}>{release.state}</a>
+                            <p className='date'>{release.date}</p>
+                            <p className='description'>{release.description}</p>
                         </article>
-                        {project.img && (
+                        {release.img && (
                             <picture>
-                                <img src={project.img} alt={`Imagen del proyecto ${index + 1}`} />
+                                <img src={release.img} alt={`Imagen del proyecto ${index + 1}`} />
                             </picture>
                         )}
-                        {project.list.length > 0 && (
-                            <ul className='list'>
-                                {project.list.map((item, itemIndex) => (
+                        {release.list.length > 0 && (
+                            <ul>
+                                {release.list.map((item, itemIndex) => (
                                     <li key={itemIndex}>{item}</li>
                                 ))}
                             </ul>
@@ -48,5 +59,4 @@ const Release = () => {
     );
 }
 
-export default Release;  // Asegúrate de exportar el componente Release correctamente
-
+export default Release;

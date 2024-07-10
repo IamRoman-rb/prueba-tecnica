@@ -5,6 +5,17 @@ section.releases{
     justify-content: center;
     flex-flow: row wrap;
 }
+.release {
+    opacity: 0;
+    transition: opacity 2.5s ease;
+}
+
+.release.visible {
+    opacity: 1;
+}
+
+
+
 @media screen and (min-width: 768px) {
     section.releases{
         width: 70%;
