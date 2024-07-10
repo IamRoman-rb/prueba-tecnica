@@ -1,0 +1,28 @@
+:root{
+    /* Colors */
+    /* UI Colors */
+    --ui-green: #2DCAB1;
+    --ui-light-gray: #7D879C;
+    --ui-dark-gray: #2B3445;
+    --ui-black: #000;
+    --ui-white: #FFF;
+
+    /* Chips */
+    --chips-dark-green: #1CB59C;
+    --chips-light-green: #D3FFF5;
+    --chips-yellow: #FFB800;
+    --chips-cream: #FFF8E5;
+    --chips-red: #F56565;
+    --chips-pink: #FFDFDF;
+
+    /* Grandients */
+
+    --color-1: rgba(13, 82, 135, 0);
+    --color-2: rgba(24, 125, 202, 0.21);
+    --color-3: rgba(5, 169, 206, 0.42);
+    --color-4: rgba(4, 210, 200, 0.63);
+    --color-5: rgba(38, 228, 199, 0.79);
+
+
+
+}

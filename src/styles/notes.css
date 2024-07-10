@@ -1,0 +1,35 @@
+@import url('index.css');
+section.release-notes{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+section.release-notes h1{
+    margin: 1rem;
+}
+section.release-notes ul.list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+    list-style: none;
+}
+section.release-notes a{
+    display: flex;
+    align-items: center;
+    color: #187dca;
+    font-weight: bold;
+    text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+    section.release-notes{
+        width: 25%;
+        display: block;
+    }
+    section.release-notes a{
+        display: none;
+    }
+
+}

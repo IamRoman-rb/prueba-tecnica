@@ -1,0 +1,9 @@
+@import url('index.css');
+header.header{
+    width: 100%;
+    padding: 2rem;
+    color: var(--ui-white);
+    background: hsla(206, 81%, 37%, 1);
+    background: linear-gradient(90deg, hsla(206, 81%, 37%, 1) 0%, hsla(170, 80%, 66%, 1) 100%);
+
+}

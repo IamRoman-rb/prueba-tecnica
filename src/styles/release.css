@@ -1,0 +1,81 @@
+@import url('index.css');
+section.releases{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+@media screen and (min-width: 768px) {
+    section.releases{
+        width: 70%;
+    }
+}
+section.releases article.release{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1rem calc(100% - 2rem);
+}
+section.releases article.release article.bar{
+    width: .2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: var(--ui-green);
+}
+section.releases article.release article.bar article.ball{
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    background-color: var(--ui-green);
+    position: absolute;
+    top: -.5rem;
+}
+section.releases article.release section.detail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 
+    1rem;
+
+}
+section.releases article.release section.detail h1{
+    width: 100%;
+    font-size: 1em;
+
+}
+section.releases article.release section.detail article.info{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+section.releases article.release section.detail article.info a.state{
+    width: auto;
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    text-decoration: none;
+    border-radius: 1rem;
+}
+section.releases article.release section.detail article.info a.feat{
+    color: var(--chips-dark-green);
+    background-color: var(--chips-light-green);
+}
+section.releases article.release section.detail article.info a.fix{
+    color: var(--chips-yellow);
+    background-color: var(--chips-cream);
+}
+section.releases article.release section.detail article.info p.description{
+    width: 100%;
+}
+section.releases article.release section.detail picture{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.releases article.release section.detail picture img{
+    width: 100%;
+}
