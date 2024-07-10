@@ -1,40 +1,51 @@
 import { useEffect, useState } from 'react';
 import '../styles/release.css';
 
-export const Release = () => {
-    const [releaseData, setReleaseData] = useState([]);
+const Release = () => {
+    const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        fetch('../json/release.json')
+        fetch('/public/json/release.json')
             .then(response => response.json())
-            .then(data => setReleaseData(data))
+            .then(data => setProjects(data))
             .catch(error => console.error('Error al cargar el archivo JSON:', error));
     }, []);
 
-    if (releaseData.length === 0) {
+    if (projects.length === 0) {
         return <div>Cargando...</div>;
     }
 
     return (
         <section className="releases">
-            {releaseData.map((release, index) => (
+            {projects.map((project, index) => (
                 <article key={index} className='release'>
                     <article className='bar'>
                         <article className='ball'></article>
                     </article>
                     <section className='detail'>
-                        <h1>{release.title}</h1>
+                        <h1>{project.title}</h1>
                         <article className='info'>
-                            <a href="#" className={`state ${release.state.toLowerCase()}`}>{release.state}</a>
-                            <p className='date'>{release.date}</p>
-                            <p className='description'>{release.description}</p>
+                            <a href="#" className={`state fix ${project.state.toLowerCase()}`}>{project.state}</a>
+                            <p className='date'>{project.date}</p>
+                            <p className='description'>{project.description}</p>
                         </article>
-                        <picture>
-                            <img src={release.img} alt={`Imagen del proyecto ${index + 1}`} />
-                        </picture>
+                        {project.img && (
+                            <picture>
+                                <img src={project.img} alt={`Imagen del proyecto ${index + 1}`} />
+                            </picture>
+                        )}
+                        {project.list.length > 0 && (
+                            <ul>
+                                {project.list.map((item, itemIndex) => (
+                                    <li key={itemIndex}>{item}</li>
+                                ))}
+                            </ul>
+                        )}
                     </section>
                 </article>
             ))}
         </section>
     );
 }
+
+export default Release;
