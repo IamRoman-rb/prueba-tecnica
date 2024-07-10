@@ -46,7 +46,7 @@ const Release = () => {
                             </picture>
                         )}
                         {release.list.length > 0 && (
-                            <ul>
+                            <ul className='list'>
                                 {release.list.map((item, itemIndex) => (
                                     <li key={itemIndex}>{item}</li>
                                 ))}
