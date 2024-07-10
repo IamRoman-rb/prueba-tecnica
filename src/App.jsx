@@ -1,4 +1,5 @@
-import { Release } from "./components/Release"
+import React from 'react';
+import Release from './components/Release'
 import { ReleaseNotes } from "./components/ReleaseNotes"
 import { Header } from "./components/layouts/Header"
 import './styles/main.css'

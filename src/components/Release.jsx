@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/release.css';
 
 const Release = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        fetch('/public/json/release.json')
+        fetch('../../public/json/release.json')
             .then(response => response.json())
             .then(data => setProjects(data))
             .catch(error => console.error('Error al cargar el archivo JSON:', error));
@@ -48,4 +48,5 @@ const Release = () => {
     );
 }
 
-export default Release;
+export default Release;  // Asegúrate de exportar el componente Release correctamente
+
