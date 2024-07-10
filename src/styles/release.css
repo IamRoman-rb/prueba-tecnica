@@ -79,3 +79,10 @@ section.releases article.release section.detail picture{
 section.releases article.release section.detail picture img{
     width: 100%;
 }
+section.releases article.release section.detail ul.list{
+    width: 100%;
+    padding: 1rem;
+}
+section.releases article.release section.detail ul.list li{
+    margin: .5rem 0;
+}

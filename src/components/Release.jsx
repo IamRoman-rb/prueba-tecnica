@@ -25,7 +25,7 @@ const Release = () => {
                     <section className='detail'>
                         <h1>{project.title}</h1>
                         <article className='info'>
-                            <a href="#" className={`state fix ${project.state.toLowerCase()}`}>{project.state}</a>
+                            <a href="#" className={`state ${project.state.toLowerCase()}`}>{project.state}</a>
                             <p className='date'>{project.date}</p>
                             <p className='description'>{project.description}</p>
                         </article>
@@ -35,7 +35,7 @@ const Release = () => {
                             </picture>
                         )}
                         {project.list.length > 0 && (
-                            <ul>
+                            <ul className='list'>
                                 {project.list.map((item, itemIndex) => (
                                     <li key={itemIndex}>{item}</li>
                                 ))}
